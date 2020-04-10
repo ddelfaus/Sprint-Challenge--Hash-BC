@@ -14,12 +14,28 @@ from hashtables import (HashTable,
 def get_indices_of_item_weights(weights, length, limit):
     ht = HashTable(16)
 
-    #need to find the highest two pairs to get to the limit
-    
-    """
-    YOUR CODE HERE
-    """
-
+    #need to find the highest two pairs that sum up to the limit
+    #need to store each weight list index value and check to see if hash table contain limit - weight
+    #need to loop through weight list 
+    #start at 0
+    index = 0
+    for item in weights:
+        
+    #find the difference between limit - weight
+        difference = limit - item
+    #Retrive items that are at limit
+        value = hash_table_retrieve(ht, difference)
+        #check if it exists
+        if value is not None:
+            if value < index:
+                return(index, value)
+            else:
+            
+                return(index, value)
+        #add to hash table
+        hash_table_insert(ht, item, index)        
+        #increment index
+        index = index + 1
     return None
 
 
@@ -28,3 +44,8 @@ def print_answer(answer):
         print(str(answer[0] + " " + answer[1]))
     else:
         print("None")
+
+
+weights = [ 4, 6, 10, 15, 16 ]
+
+print(get_indices_of_item_weights(weights,5,21))
